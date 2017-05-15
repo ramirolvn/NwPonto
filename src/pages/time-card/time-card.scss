@@ -1,0 +1,27 @@
+page-time-card {
+    ion-navbar {
+        height: 64px !important;
+    }
+    button.back-button{
+        top: 7px;
+        color: #C22F2F;
+    }
+    .toolbar-title.toolbar-title-ios {
+        display: flex;
+        position: absolute;
+        top: 28px;
+    }
+    .toolbar-title {
+        color: #C22F2F;
+    }
+    div.input-wrapper{
+        color: #C22F2F;
+    }
+    ion-icon{
+        color: #C22F2F;
+    }
+    .button-effect{
+        background-color: white;
+    }
+
+}

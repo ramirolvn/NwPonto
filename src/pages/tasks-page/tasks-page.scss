@@ -1,0 +1,57 @@
+page-tasks-page {
+    ion-navbar {
+        height: 64px !important;
+    }
+    button.back-button{
+        top: 7px;
+        color: #C22F2F;
+    }
+    .toolbar-title.toolbar-title-ios {
+        left: 115px;
+        display: flex;
+        position: absolute;
+        top: 28px;
+    }
+    .toolbar-title{
+        position: absolute;
+        top: -7px;
+        left: 30px;
+        color: #C22F2F;
+    }
+    ion-input{
+        height: 100px;
+        border-radius: 8px;
+    }
+    .background{
+        background-color: #C22F2F;
+    }
+    input{
+        border-radius: 10px;
+    }
+    #button-cam{
+        top: 30px;
+        left: 40px;
+        align-content: center;
+        vertical-align: center;
+        text-align:center;
+        color: #C22F2F;
+        width: 70%;
+    }
+    #button-send{
+        top: 30px;
+        left: 40px;
+        align-content: center;
+        vertical-align: center;
+        text-align:center;
+        color: #C22F2F;
+        width: 70%;
+        
+    }
+    div.input-cover{
+        width: 100px;
+    }
+    .background .scroll-content{
+            overflow: hidden;
+        }
+
+}

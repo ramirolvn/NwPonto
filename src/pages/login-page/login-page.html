@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="background">
+    <form (ngSubmit)="registerForm()" >
+      <ion-item>
+        <ion-label floating color="nw-red">CPF</ion-label>
+        <ion-input type="number" [(ngModel)]="loginUser.CPF" name="CPF"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">Senha</ion-label>
+        <ion-input  type ="password" [(ngModel)]="loginUser.password" name="password"></ion-input >
+      </ion-item>
+      <button ion-button color="nw-red" type="submit" block>Login</button>
+    </form>
+        <button ion-button color="nw-red" block (click)="registerScreen()">Registre-se</button>
+</ion-content>

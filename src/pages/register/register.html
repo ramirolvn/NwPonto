@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registre-se</ion-title>
+    <ion-buttons end>
+      <button color="nw-red" ion-button icon-only (click)="takePict()">
+        <ion-icon name="ios-camera"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form (ngSubmit)="registerForm()" >
+      <ion-item>
+        <ion-avatar item-left>
+        <img src="{{userPhoto}}">
+      </ion-avatar>
+        <ion-label floating color="nw-red">Nome</ion-label>
+        <ion-input [(ngModel)]="registerUser.name" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">Email</ion-label>
+        <ion-input [(ngModel)]="registerUser.email" name="email"></ion-input>
+      </ion-item>
+          <ion-item>
+            <ion-label floating color="nw-red">Cargo</ion-label>
+            <ion-select [(ngModel)]="registerUser.office" [ngModelOptions]="{standalone: true}">
+              <ion-option value="Estagiário">Estagiário</ion-option>
+              <ion-option value="Analista">Analista</ion-option>
+              <ion-option value="Programador">Programador</ion-option>
+              <ion-option value="Suporte">Suporte</ion-option>
+            </ion-select>
+        </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">Endereço</ion-label>
+        <ion-input [(ngModel)]="registerUser.address" name="address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">Senha</ion-label>
+        <ion-input  type ="password" [(ngModel)]="registerUser.password" name="password"></ion-input >
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">Confirme a senha</ion-label>
+        <ion-input [(ngModel)]="registerUser.passwordConfirm" type ="password" name="passwordConfirm"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="nw-red">CPF</ion-label>
+        <ion-input type="number" [(ngModel)]="registerUser.CPF" name="CPF"></ion-input>
+      </ion-item>
+      <button ion-button color="nw-red" disabled={{buttonProperty.register}} type="submit" block>Registrar</button>
+    </form>
+</ion-content>

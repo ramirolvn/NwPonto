@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      NWPonto
+    </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background">
+
+  <ion-item>
+    <ion-avatar item-left>
+      <!--<img src="data:image/png;base64,{{user.photo}}"/>-->
+      <img src="{{user.photo}}"/>
+    </ion-avatar>
+    <h2>{{user.name}}</h2>
+    <p>{{user.email}}</p>
+  </ion-item>
+
+  <img src="assets/img/nwsoft.jpg">
+
+    <p>Notificações da empresa: Dia 18/04/2017 teremos treinamento em Fortaleza/CE .</p>
+ 
+
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button icon-left clear small (click)="pushTimeCard()">
+        <ion-icon color="dark" name="md-time"></ion-icon>
+        <div id="registerDiv">Registrar Ponto</div>
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+          <ion-col text-center>
+            <ion-note color="nw-red">
+                11h ago
+          </ion-note>
+        </ion-col>
+</ion-row>
+  <ion-fab center>
+    <button ion-fab color="nw-red"><ion-icon name="ios-add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="nw-red" (click)="pushNotificationPage()"><ion-icon name="ios-mail"></ion-icon></button>
+      <ion-badge color="nw-red">3</ion-badge>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <button ion-fab color="nw-red" (click)="pushConfigurationPage()"><ion-icon name="ios-settings"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab color="nw-red" (click)="pushTaskPage()"><ion-icon name="ios-clipboard"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right">
+      <button ion-fab color="nw-red" (click)="pushTutorialPage()"><ion-icon name="ios-help"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

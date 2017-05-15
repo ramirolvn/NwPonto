@@ -1,0 +1,44 @@
+    page-configuration-page {
+        ion-navbar {
+            height: 64px !important;
+        }
+        button.back-button{
+            top: 7px;
+            color: #C22F2F;
+        }
+        .toolbar-title.toolbar-title-ios {
+            display: flex;
+            top: 28px;
+            left: 100px;
+        }
+        .toolbar-title {
+            color: #C22F2F;
+            position: absolute;
+        }
+        .toolbar-title.toolbar-title-md{
+            left: 27px;
+            top:-5px;
+
+        }
+        .background{
+            background-color: #C22F2F;
+        }
+        .scroll-content{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .celula{
+            padding: 16px;
+            margin: 16px;
+            width: 90%;
+        }
+        .buttonLogOut{
+            background-color: white;
+            color: #C22F2F;
+            border-radius: 5px;
+        }
+       .background .scroll-content{
+            overflow: hidden;
+        }
+
+    }
