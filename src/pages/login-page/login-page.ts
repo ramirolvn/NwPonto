@@ -31,8 +31,8 @@ export class LoginPage {
         .then((db: SQLiteObject) => {
             db.executeSql('SELECT CPF,password FROM user ORDER BY id DESC LIMIT 1;', [])
                       .then(data =>{  
-                        this.loading.present();
                           if (data.rows.length > 0) {
+                            this.loading.present();
                               this.userProv.login(data.rows.item(0).CPF, data.rows.item(0).password).then(data=> {
                                     if(this.userProv.response["431"] == undefined){
                                         this.userProv.userObj = this.userProv.response;
@@ -42,15 +42,18 @@ export class LoginPage {
                                           this.showAlert("Erro no Login");
                                       } 
                               }).catch(err => {
+                                this.loading.dismiss();
                                 this.showAlert("Erro no Login");
                               });
                             }
                     }).catch(e => {
+                      this.loading.dismiss();
                       this.showAlert("Erro no Login");
                       console.log(e);
                 });
           })
           .catch(e => {
+            this.loading.dismiss();
             this.showAlert("Erro na comunicação com o banco!");
           });  
   }
@@ -63,9 +66,23 @@ export class LoginPage {
     if(canGo == true){
       this.userProv.login(this.loginUser.CPF, this.loginUser.password).then(data => {
         if(this.userProv.response["431"] == undefined){
-          console.log(this.userProv.response);
           this.userProv.userObj = this.userProv.response;
-          this.homePage();
+          this.sqlite.create(this.dbOptions)
+                  .then((db: SQLiteObject) => {
+                      db.executeSql('INSERT INTO user (id, name, email , CPF , address , password , photo , office) VALUES (?,?, ?, ?, ?, ?, ?, ?);', [this.userProv.userObj["id"],this.userProv.userObj['name'], this.userProv.userObj['email'],this.userProv.userObj['CPF'],this.userProv.userObj['address'], this.userProv.userObj['password'], this.userProv.userObj['photo'], this.userProv.userObj['office']])
+                        .then(() => {
+                          this.loading.dismiss();
+                          this.homePage();
+                        })
+                        .catch(e => {
+                          this.loading.dismiss();
+                          this.showAlert("Erro ao salvar usuário");
+                        });
+                    })
+                    .catch(e => {
+                      this.loading.dismiss();
+                      this.showAlert("Erro na comunicação com o banco!");
+                    }); 
         }else{
           this.loading.dismiss();
           this.showAlert("Erro no Login");

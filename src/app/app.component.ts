@@ -18,11 +18,12 @@ export class MyApp {
   constructor(
   platform: Platform, 
   statusBar: StatusBar, 
-  splashScreen: SplashScreen,
+  public splashScreen: SplashScreen,
   private sqlite: SQLite,
   public userProv: UserProvider) {
 
     platform.ready().then(() => {
+      this.hideSplashScreen();
       this.rootPage = LoginPage;
       //criando banco
       this.sqlite.create(this.dbOptions)
@@ -38,8 +39,15 @@ export class MyApp {
             //erro ao abrir banco
           });
           statusBar.styleDefault();
-          splashScreen.hide();
+          // splashScreen.hide();
     });
   }
+    hideSplashScreen() {
+        if (this.splashScreen) {
+          setTimeout(() => {
+            this.splashScreen.hide();
+          }, 10000);
+        }
+      }
 }
 

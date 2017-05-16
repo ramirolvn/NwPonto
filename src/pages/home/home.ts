@@ -13,13 +13,13 @@ import { UserProvider } from '../../providers/user-provider';
 })
 export class HomePage {
   user = {};
+  date = this.formatDate(new Date);
 
   constructor(
     public navCtrl: NavController, 
     params: NavParams,
     public userProv: UserProvider) {
       // this.user = params.get('user');
-      console.log(this.userProv.response);
        this.user = this.userProv.userObj;
   }
 
@@ -47,5 +47,20 @@ export class HomePage {
       user: this.user,
     });
   }
+
+  formatDate(date) {
+  var monthNames = [
+    "Jan", "Fev", "Mar",
+    "Abr", "Maio", "Jun", "Jul",
+    "Ago", "Set", "Out",
+    "Nov", "Dez"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
 
 }

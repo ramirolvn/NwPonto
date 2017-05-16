@@ -14,45 +14,11 @@
 
 
 <ion-content padding>
-
-    <button ion-item>
-      <ion-icon name="ios-sunny" item-left></ion-icon>
-      Início de Turno
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-clipboard" item-left></ion-icon>
-      Início de Tarefa
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-checkmark" item-left></ion-icon>
-      Finalizar uma tarefa
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-restaurant" item-left></ion-icon>
-      Almoço
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-create" item-left></ion-icon>
-      Volta à atividade
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-cafe" item-left></ion-icon>
-      Pausa para o café
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-create" item-left></ion-icon>
-      Volta à atividade
-    </button>
-
-    <button ion-item>
-      <ion-icon name="ios-moon" item-left></ion-icon>
-      Fim do espediente
-    </button>
+    <ion-list>
+      <button ion-item *ngFor="let a of actions" (click)="registerCard(a)" disabled={{a.disable}}>
+        <ion-icon name={{a.image}} item-left></ion-icon>
+        {{a.title}}
+      </button>
+    </ion-list>
 
 </ion-content>

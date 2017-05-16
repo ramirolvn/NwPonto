@@ -46,8 +46,8 @@ export class UserProvider {
         .then(data => {
             try {
               this.response = JSON.parse(data.data);
-              console.log(data.headers);
-              console.log(data.data.message);
+              // console.log(data.headers);
+              // console.log(data.data.message);
             } catch(e) {
                 console.error("Erro pegar JSON");
             }
@@ -57,6 +57,29 @@ export class UserProvider {
           console.log(error.error); // error message as string
           console.log(error.headers);
         });
+  }
+   registerCard(record){
+        try{
+          record = JSON.stringify(record);
+        }
+        catch(e){
+          console.error("Erro ao criar JSON");
+      }
+        return this.http.post(this.urlAPI,{"registerCard": record},this.headers).then(data => {
+          console.log(data.data);
+          try {
+              this.response = JSON.parse(data.data);
+            } catch(e) {
+                console.error("Erro pegar JSON");
+            }
+          // console.log(data.headers);
+      })
+      .catch(error => {
+          console.log(error.status);
+          console.log(this.headers);
+          console.log(error.error); // error message as string
+          console.log(error.headers);
+      });   
   }
 
 

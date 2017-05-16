@@ -17,6 +17,7 @@ import { TutorialPage } from '../pages/tutorial-page/tutorial-page';
 import { UserProvider } from '../providers/user-provider';
 import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SQLite } from '@ionic-native/sqlite';
     HTTP,
     Camera,
     SQLite,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
